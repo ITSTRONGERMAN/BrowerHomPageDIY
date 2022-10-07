@@ -13,7 +13,7 @@ body {
   transition: all 0.5s;
 }
 .tip {
-  padding: 10px 15px;
+  padding: 0 15px;
   background: #fff;
   position: absolute;
   top: 30px;
@@ -152,7 +152,7 @@ body {
   .website {
     width: 100px;
     height: 100px;
-    display:block;
+    display: block;
     transition: all 0.5s;
     font-weight: bold;
     border-radius: 5px;
@@ -181,6 +181,9 @@ body {
     border-radius: 10px;
     box-sizing: border-box;
     padding-top: 10px;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
     .addwebsite-btn {
       width: 50px;
       height: 50px;
@@ -196,5 +199,13 @@ body {
       user-select: none;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     }
+  }
+  .websiteconfig{
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    position: absolute;
+    right: -320px;
+    bottom: 50px;
   }
 }
