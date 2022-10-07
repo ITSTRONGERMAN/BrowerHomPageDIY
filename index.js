@@ -133,7 +133,7 @@ $(".website-box .close,.cancel").click(function () {
 });
 // 添加数据并渲染
 $(".website-box .yes").click(function () {
-  if ($(".website-box").children(".website").length >= 8) {
+  if ($(".website-box").children(".website").length >= 12) {
     showTip("已达到快捷方式最大容量");
     return;
   }
@@ -145,7 +145,7 @@ $(".website-box .yes").click(function () {
   }
   let data = {
     url,
-    imgUrl: "./images/bilibili.png",
+    imgUrl: url + "favicon.ico",
     name,
   };
   websiteNav.push(data);
