@@ -5,6 +5,9 @@ const wallpaperList = [
   "./wallpaper/bg3.jpg",
   "./wallpaper/bg4.jpg",
   "./wallpaper/bg5.jpg",
+  './wallpaper/bg6.jpg',
+  './wallpaper/bg7.jpg',
+  './wallpaper/bg8.jpg'
 ];
 // 动态渲染壁纸数据
 $.each(wallpaperList, function (index, imgData) {
