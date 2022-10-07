@@ -90,29 +90,34 @@ $(".nav .tab-box .skin-img").click(function () {
 // 下方常用网站快捷导航数据
 const websiteNav = [
   {
-    url: "https://www.bilibili.com/",
-    imgUrl: "./images/bilibili.png",
+    url: "https://www.bilibili.com",
+    imgUrl: "https://www.bilibili.com/favicon.ico",
     name: "bilibili",
   },
   {
     url: "https://github.com/ITSTRONGERMAN",
-    imgUrl: "./images/github.png",
+    imgUrl: "https://github.com/favicon.ico",
     name: "github",
   },
   {
     url: "https://www.csdn.net/",
-    imgUrl: "./images/csdn.png",
+    imgUrl: "https://www.csdn.net/favicon.ico",
     name: "CSDN",
   },
   {
     url: "https://www.runoob.com/",
-    imgUrl: "./images/cainiao.png",
+    imgUrl: "https://www.runoob.com/favicon.ico",
     name: "菜鸟教程",
   },
   {
     url: "https://fanyi.baidu.com/?aldtype=16047#auto/zh",
-    imgUrl: "./images/fanyi.png",
+    imgUrl: "https://fanyi.baidu.com/favicon.ico",
     name: "百度翻译",
+  },
+  {
+    url: "https://www.douyin.com/",
+    imgUrl: "https://www.douyin.com/favicon.ico",
+    name: "抖音",
   },
 ];
 // 动态渲染网站快捷导航数据
