@@ -203,9 +203,41 @@ body {
 }
 .website-box .websiteconfig {
   width: 300px;
-  height: 300px;
   background-color: #fff;
   position: absolute;
   right: -320px;
   bottom: 50px;
+  padding: 30px;
+  border-radius: 5px;
+  text-align: center;
+  display: none;
+}
+.website-box .websiteconfig h1 {
+  margin-bottom: 10px;
+}
+.website-box .websiteconfig input {
+  text-indent: 10px;
+  border: 1px solid #eee;
+  height: 40px;
+}
+.website-box .websiteconfig .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+}
+.website-box .websiteconfig .cancel,
+.website-box .websiteconfig .yes {
+  display: inline-block;
+  width: 50px;
+  height: 30xp;
+  background-color: blue;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
 }

@@ -124,7 +124,34 @@ function renderWebsiteNav() {
   });
 }
 renderWebsiteNav();
-// 添加网址
+// 添加网址快捷方式
 $(".addwebsite-btn").click(function () {
-   
+  $(this).parent().siblings(".websiteconfig").fadeIn();
+});
+$(".website-box .close,.cancel").click(function () {
+  $(this).parent().fadeOut();
+});
+// 添加数据并渲染
+$(".website-box .yes").click(function () {
+  if ($(".website-box").children(".website").length >= 8) {
+    showTip("已达到快捷方式最大容量");
+    return;
+  }
+  let url = $("#weburl").val();
+  let name = $("#webname").val();
+  if (url.trim() == "" || name.trim() == "") {
+    showTip("必填内容，不能为空");
+    return;
+  }
+  let data = {
+    url,
+    imgUrl: "./images/bilibili.png",
+    name,
+  };
+  websiteNav.push(data);
+  $(".website-box").children(".website").remove();
+  renderWebsiteNav();
+  $(this).parent().fadeOut();
+  $("#weburl").val("");
+  $("#webname").val("");
 });
