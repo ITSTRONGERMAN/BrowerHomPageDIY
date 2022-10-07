@@ -5,9 +5,9 @@ const wallpaperList = [
   "./wallpaper/bg3.jpg",
   "./wallpaper/bg4.jpg",
   "./wallpaper/bg5.jpg",
-  './wallpaper/bg6.jpg',
-  './wallpaper/bg7.jpg',
-  './wallpaper/bg8.jpg'
+  "./wallpaper/bg6.jpg",
+  "./wallpaper/bg7.jpg",
+  "./wallpaper/bg8.jpg",
 ];
 // 动态渲染壁纸数据
 $.each(wallpaperList, function (index, imgData) {
@@ -61,7 +61,7 @@ let autoChangSkinTimer = null;
 let autoChangeSkinDelay = 180000;
 function autoChangeSkin() {
   autoChangSkinTimer = setInterval(() => {
-    if (autoChangSkinIndex >= 5) {
+    if (autoChangSkinIndex >= wallpaperList.length) {
       autoChangSkinIndex = 0;
     }
     autoChangSkinIndex++;
@@ -75,6 +75,7 @@ function autoChangeSkin() {
 autoChangeSkin();
 // 手动换肤功能的实现
 $(".nav .tab-box .skin-img").click(function () {
+  clearInterval(autoChangSkinTimer);
   let imgSrc = $(this).children("img").prop("src");
   autoChangSkinIndex = $(this).attr("index");
   console.log(autoChangSkinIndex);
@@ -83,6 +84,7 @@ $(".nav .tab-box .skin-img").click(function () {
     backgroundSize: "cover",
     backgroundPosition: "center",
   });
+  autoChangeSkin();
 });
 // 导航栏按钮控制自动换肤
 // 下方常用网站快捷导航数据
