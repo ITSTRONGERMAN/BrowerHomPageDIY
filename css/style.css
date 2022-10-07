@@ -1,0 +1,200 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: url("../wallpaper/bg1.jpg");
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s;
+}
+.tip {
+  padding: 10px 15px;
+  background: #fff;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 3px;
+  display: none;
+}
+.tip .icon-xinxi {
+  font-size: 20px;
+  color: gold;
+  margin-right: 10px;
+}
+.tip .tiptxt {
+  line-height: 50px;
+  color: #000;
+}
+.mask {
+  background-color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.container {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+.container nav {
+  padding: 0 15px;
+}
+.container nav .navlist {
+  display: flex;
+  justify-content: flex-end;
+}
+.container nav .navlist .nav {
+  position: relative;
+  cursor: pointer;
+}
+.container nav .navlist .nav .icon-huanfu {
+  font-size: 30px;
+  color: #fff;
+}
+.container nav .navlist .nav .tab-box {
+  position: absolute;
+  right: 0;
+  top: 45px;
+  width: 900px;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: none;
+  z-index: 213123;
+}
+.container nav .navlist .nav .tab-box ul {
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+.container nav .navlist .nav .tab-box ul :nth-child(4n) {
+  margin-right: 0 !important;
+}
+.container nav .navlist .nav .tab-box ul li {
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.container nav .navlist .nav .tab-box ul li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container .search-box {
+  margin-top: 50px;
+  position: relative;
+}
+.container .search-box .logo {
+  text-align: center;
+}
+.container .search-box .logo .icon-baidu {
+  font-size: 150px;
+  color: #fff;
+}
+.container .search-box .search {
+  text-align: center;
+}
+.container .search-box .search .search-ipt {
+  width: 800px;
+  height: 50px;
+  border-radius: 6px 0 0 6px;
+  background: transparent;
+  border: 2px solid #fff;
+  text-indent: 20px;
+  color: #fff;
+  margin-right: 0;
+  font-size: 20px;
+  border-right: none;
+}
+.container .search-box .search .search-btn {
+  display: inline-block;
+  width: 100px;
+  height: 46px;
+  color: #fff;
+  line-height: 46px;
+  text-align: center;
+  border: 2px solid #fff;
+  cursor: pointer;
+  vertical-align: top;
+  font-weight: bolder;
+  margin-left: -10px;
+  border-radius: 0 6px 6px 0;
+}
+.container .search-box .search .search-btn .icon-sousuo {
+  font-size: 30px;
+}
+.website-box {
+  margin-top: 20px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 10px #333;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  z-index: 123;
+  padding-left: 10px;
+  padding-right: 100px;
+  display: flex;
+}
+.website-box .website {
+  width: 100px;
+  height: 100px;
+  display: block;
+  transition: all 0.5s;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 10px;
+}
+.website-box .website:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.website-box .website img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 5px;
+  object-fit: cover;
+}
+.website-box .addwebsite {
+  display: block;
+  font-size: 30px;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  color: #fff;
+  right: 0;
+  top: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding-top: 10px;
+}
+.website-box .addwebsite .addwebsite-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  line-height: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}

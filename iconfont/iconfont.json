@@ -1,0 +1,30 @@
+{
+  "id": "3688849",
+  "name": "BrowserHomPageDIY",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "352500",
+      "name": "百度推荐",
+      "font_class": "baidutuijian",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "5387553",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "eafe",
+      "unicode_decimal": 60158
+    },
+    {
+      "icon_id": "12959344",
+      "name": "换肤",
+      "font_class": "huanfu",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    }
+  ]
+}
