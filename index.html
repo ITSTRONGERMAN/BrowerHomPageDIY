@@ -7,15 +7,27 @@
     <title>BrowserHomPageDIY</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="shortcut icon" href="./wallpaper/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/calendar.css" />
+    <link
+      rel="shortcut icon"
+      href="./wallpaper/favicon.ico"
+      type="image/x-icon"
+    />
     <link
       rel="stylesheet"
       href="https://at.alicdn.com/t/c/font_3688849_qytk21lopuq.css"
     />
     <script src="./libs/jquery.min.js"></script>
+    <script src="./libs/schedule.js"></script>
   </head>
 
   <body>
+    <!-- 日历插件 -->
+   <div class="calendar">
+    <div id="schedule-box">
+    </div>
+    <div class="opencalendar">查看日历</div>
+   </div>
     <div class="tip">
       <span class="iconfont icon-xinxi"></span>
       <span class="tiptxt"></span>
@@ -24,12 +36,15 @@
     <div class="container">
       <nav>
         <ul class="navlist">
-          <li class="nav famoustxt">
-            
-          </li>
+          <li class="nav famoustxt"></li>
           <li class="nav">
             <span class="iconfont icon-huanfu" title="换肤"></span>
             <div class="tab-box">
+              <ul class="jord">
+                <li>静态壁纸</li>
+                <span>|</span>
+                <li>动态壁纸</li>
+              </ul>
               <ul class="imgbox"></ul>
             </div>
           </li>

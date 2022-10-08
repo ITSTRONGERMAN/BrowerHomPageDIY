@@ -12,6 +12,31 @@ body {
   background-position: center;
   transition: all 0.5s;
 }
+.calendar {
+  position: absolute;
+  right: -360px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 123123;
+  transition: all 0.3s ease-in-out;
+  .opencalendar {
+    width: 30px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    color: #000;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 3px 0 0 3px;
+  }
+}
 .tip {
   padding: 0 15px;
   background: #fff;
@@ -50,7 +75,7 @@ body {
     .navlist {
       display: flex;
       justify-content: flex-end;
-      :last-child{
+      :last-child {
         margin-right: 0 !important;
       }
       .nav {
@@ -75,23 +100,54 @@ body {
           display: none;
           z-index: 213123;
           overflow: auto;
-          &::-webkit-scrollbar { width: 0 !important }
-          ul {
+          &::-webkit-scrollbar {
+            width: 0 !important;
+          }
+          .jord {
             display: flex;
-            padding: 20px;
+            margin-top: 10px;
+            padding-left: 20px;
+            span {
+              font-size: normal;
+              background-color: #4e5969;
+              line-height: 30px;
+            }
+            li {
+              font-size: 16px;
+              width: 100px;
+              height: 30px;
+              text-align: center;
+              line-height: 30px;
+              background-color: #4e5969;
+            }
+          }
+          .imgbox {
+            display: flex;
+            padding: 0 20px 20px 20px;
             flex-wrap: wrap;
+            perspective: 1000px;
             :nth-child(4n) {
               margin-right: 0 !important;
             }
-            li {
+            li.skin-img {
               width: 200px;
               height: 200px;
               margin-right: 20px;
               margin-top: 20px;
+              transition: all 0.5s;
+              &:hover {
+                box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.5);
+                transform: scale(1.05);
+              }
+              &:hover img {
+                opacity: 1;
+              }
               img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                opacity: 0.8;
+                transition: all 0.5s;
               }
             }
           }
@@ -217,6 +273,7 @@ body {
     position: absolute;
     left: 50%;
     top: -250px;
+    transform: translateX(-50%);
     padding: 30px;
     border-radius: 5px;
     text-align: center;

@@ -10,15 +10,15 @@ const wallpaperList = [
   "./wallpaper/bg8.jpg",
   "./wallpaper/bg9.jpg",
   "./wallpaper/bg10.jpg",
-  './wallpaper/bg12.jpg',
-  './wallpaper/bg13.jpg',
-  './wallpaper/bg14.jpg',
-  './wallpaper/bg15.jpg',
-  './wallpaper/bg16.jpg',
-  './wallpaper/bg17.jpg',
-  './wallpaper/bg18.jpg',
-  './wallpaper/bg19.jpg',
-  './wallpaper/bg20.jpg',
+  "./wallpaper/bg12.jpg",
+  "./wallpaper/bg13.jpg",
+  "./wallpaper/bg14.jpg",
+  "./wallpaper/bg15.jpg",
+  "./wallpaper/bg16.jpg",
+  "./wallpaper/bg17.jpg",
+  "./wallpaper/bg18.jpg",
+  "./wallpaper/bg19.jpg",
+  "./wallpaper/bg20.jpg",
 ];
 // 动态渲染壁纸数据
 $.each(wallpaperList, function (index, imgData) {
@@ -67,15 +67,15 @@ $(".search-btn").click(function () {
   window.open(searchUrl);
 });
 // 自动换肤功能
-let autoChangSkinIndex = 0;
-let autoChangSkinTimer = null;
+let autoChangeSkinIndex = 0;
+let autoChangeSkinTimer = null;
 let autoChangeSkinDelay = 180000;
 function autoChangeSkin() {
   autoChangSkinTimer = setInterval(() => {
-    if (autoChangSkinIndex >= wallpaperList.length) {
-      autoChangSkinIndex = 0;
+    if (autoChangeSkinIndex > wallpaperList.length) {
+      autoChangeSkinIndex = 0;
     }
-    autoChangSkinIndex++;
+    autoChangeSkinIndex++;
     $("body").css({
       background: `url('file:///C:/Users/86199/Desktop/project/BrowerHomPageDIY/wallpaper/bg${autoChangSkinIndex}.jpg')`,
       backgroundSize: "cover",
@@ -86,9 +86,9 @@ function autoChangeSkin() {
 autoChangeSkin();
 // 手动换肤功能的实现
 $(".nav .tab-box .skin-img").click(function () {
-  clearInterval(autoChangSkinTimer);
+  clearInterval(autoChangeSkinTimer);
   let imgSrc = $(this).children("img").prop("src");
-  autoChangSkinIndex = $(this).attr("index");
+  autoChangeSkinIndex = $(this).attr("index");
   $("body").css({
     background: `url('${imgSrc}')`,
     backgroundSize: "cover",
@@ -129,6 +129,16 @@ const websiteNav = [
     imgUrl: "https://www.douyin.com/favicon.ico",
     name: "抖音",
   },
+  {
+    url: "https://www.bootcdn.cn/",
+    imgUrl: "https://www.bootcdn.cn/assets/img/bootcdn.png",
+    name: "Bootcdn",
+  },
+  {
+    url: "https://cn.vuejs.org/",
+    imgUrl: "https://vuejs.org/images/logo.png",
+    name: "Vue",
+  },
 ];
 // 动态渲染网站快捷导航数据
 function renderWebsiteNav() {
@@ -165,7 +175,7 @@ $(".website-box .yes").click(function () {
     name.trim() == "" ||
     name.length == 0
   ) {
-    showTip("必填内容，不能为空");
+    showTip("请完善您所添加的快捷方式信息");
     return;
   }
   let data = {
@@ -185,6 +195,54 @@ $.ajax({
   type: "get",
   url: "https://api.uixsj.cn/hitokoto/get?type=social",
   success(res) {
-    $('.famoustxt').html(res)
+    $(".famoustxt").html(res);
   },
 });
+// 日历
+var mySchedule = new Schedule({
+  el: "#schedule-box", //指定包裹元素（可选）
+  date: new Date(), //生成指定日期日历（可选）
+  clickCb: function (y, m, d) {
+    //点击日期回调（可选）
+  },
+  nextMonthCb: function (y, m, d) {
+    //点击下个月回调（可选）
+  },
+  nextYeayCb: function (y, m, d) {
+    //点击下一年回调（可选）
+  },
+  prevMonthCb: function (y, m, d) {
+    //点击上个月回调（可选）
+  },
+  prevYearCb: function (y, m, d) {
+    //点击上一年月回调（可选）
+  },
+});
+// 打开日历
+let isOpenCalendar = false;
+let calendarTimer = null;
+$(".opencalendar").click(function () {
+  if (calendarTimer != null) {
+    clearTimeout(calendarTimer);
+  }
+  if (!isOpenCalendar) {
+    $(this).parent().css("right", "20px");
+    $(this).html("关闭日历");
+    isOpenCalendar = true;
+  } else {
+    $(this).parent().css("right", "-360px");
+    $(this).html("打开日历");
+    isOpenCalendar = false;
+  }
+  calendarTimer = setTimeout(() => {
+    $(this).parent().css("right", "-360px");
+    $(this).html("打开日历");
+    isOpenCalendar = false;
+  }, 10000);
+});
+// 获取时间
+let dateNow=new Date()
+function formatTime(time){
+  return `${time.getFullYear()}年`
+}
+console.log(formatTime(dateNow));
