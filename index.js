@@ -81,6 +81,7 @@ function autoChangeSkin() {
       backgroundSize: "cover",
       backgroundPosition: "center",
     });
+    getFamousTxt()
   }, autoChangeSkinDelay);
 }
 autoChangeSkin();
@@ -191,13 +192,16 @@ $(".website-box .yes").click(function () {
   $("#webname").val("");
 });
 // 导航名言数据请求
-$.ajax({
-  type: "get",
-  url: "https://api.uixsj.cn/hitokoto/get?type=social",
-  success(res) {
-    $(".famoustxt").html(res);
-  },
-});
+getFamousTxt()
+function getFamousTxt(){
+  $.ajax({
+    type: "get",
+    url: "https://api.uixsj.cn/hitokoto/get?type=social",
+    success(res) {
+      $(".famoustxt").html(res);
+    },
+  });
+}
 // 日历
 var mySchedule = new Schedule({
   el: "#schedule-box", //指定包裹元素（可选）
@@ -218,7 +222,7 @@ var mySchedule = new Schedule({
     //点击上一年月回调（可选）
   },
 });
-// 打开日历
+// 日历的打开与关闭
 let isOpenCalendar = false;
 let calendarTimer = null;
 $(".opencalendar").click(function () {
