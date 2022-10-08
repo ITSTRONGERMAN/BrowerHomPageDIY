@@ -285,6 +285,7 @@ $(".jord li").click(function () {
     .siblings(".imgbox")
     .removeClass("current");
 });
+// 动态壁纸音量静音
 let isVolume = false;
 $(".volumebtn").click(function () {
   if (isVolume) {
