@@ -1,5 +1,5 @@
-// 壁纸数据
-const wallpaperList = [
+// 静态壁纸数据
+const statiWallpaperList = [
   "./wallpaper/bg1.jpg",
   "./wallpaper/bg2.jpg",
   "./wallpaper/bg3.jpg",
@@ -20,13 +20,29 @@ const wallpaperList = [
   "./wallpaper/bg19.jpg",
   "./wallpaper/bg20.jpg",
 ];
+// 动态壁纸数据
+const dynamicWallpaperList = [
+  "./wallpaper/dtbg1.mp4",
+  "./wallpaper/dtbg2.mp4",
+  "./wallpaper/dtbg3.mp4",
+  "./wallpaper/dtbg4.mp4",
+  "./wallpaper/dtbg5.mp4",
+  "./wallpaper/dtbg6.mp4",
+];
 // 动态渲染壁纸数据
-$.each(wallpaperList, function (index, imgData) {
+$.each(statiWallpaperList, function (index, imgData) {
   let li = $("<li></li>");
   li.addClass("skin-img");
   li.attr("index", index + 1);
   li.html(`<img src="${imgData}" alt="" />`);
-  $(".nav .tab-box .imgbox").append(li);
+  $(".nav .tab-box .staicwallpaper").append(li);
+});
+$.each(dynamicWallpaperList, function (index, imgData) {
+  let li = $("<li></li>");
+  li.addClass("skin-img");
+  li.attr("index", index + 1);
+  li.html(`<video src="${imgData}" autoplay loop muted></video>`);
+  $(".nav .tab-box .dynamicwallpaper").append(li);
 });
 // 提示框函数
 let tipTimer = null;
@@ -44,7 +60,10 @@ function showTip(txt) {
 // 换肤选项列表的淡入淡出
 let isShowSkinBox = false;
 $(".nav").click(function (e) {
-  if (e.target.parentNode.className == "tab-box") {
+  if (
+    e.target.parentNode.className == "tab-box" ||
+    e.target.parentNode.className == "jord"
+  ) {
     return;
   }
   if (!isShowSkinBox) {
@@ -81,13 +100,15 @@ function autoChangeSkin() {
       backgroundSize: "cover",
       backgroundPosition: "center",
     });
-    getFamousTxt()
+    getFamousTxt();
   }, autoChangeSkinDelay);
 }
 autoChangeSkin();
 // 手动换肤功能的实现
-$(".nav .tab-box .skin-img").click(function () {
+// 静态
+$(".nav .tab-box .staicwallpaper .skin-img").click(function () {
   clearInterval(autoChangeSkinTimer);
+  $(".dtwallpaper").prop("src", "");
   let imgSrc = $(this).children("img").prop("src");
   autoChangeSkinIndex = $(this).attr("index");
   $("body").css({
@@ -96,6 +117,11 @@ $(".nav .tab-box .skin-img").click(function () {
     backgroundPosition: "center",
   });
   autoChangeSkin();
+});
+// 动态
+$(".nav .tab-box .dynamicwallpaper .skin-img").click(function () {
+  let videoSrc = $(this).children("video").prop("src");
+  $(".dtwallpaper").prop("src", videoSrc);
 });
 // 导航栏按钮控制自动换肤
 // 网站快捷导航数据
@@ -192,8 +218,8 @@ $(".website-box .yes").click(function () {
   $("#webname").val("");
 });
 // 导航名言数据请求
-getFamousTxt()
-function getFamousTxt(){
+getFamousTxt();
+function getFamousTxt() {
   $.ajax({
     type: "get",
     url: "https://api.uixsj.cn/hitokoto/get?type=social",
@@ -245,8 +271,31 @@ $(".opencalendar").click(function () {
   }, 10000);
 });
 // 获取时间
-let dateNow=new Date()
-function formatTime(time){
-  return `${time.getFullYear()}年`
-}
-console.log(formatTime(dateNow));
+// let dateNow = new Date();
+// function formatTime(time) {
+//   return `${time.getFullYear()}年`;
+// }
+// console.log(formatTime(dateNow));
+// 静动态壁纸tab栏切换
+$(".jord li").click(function () {
+  $(this).addClass("active").siblings("li").removeClass("active");
+  $(".imgbox")
+    .eq($(this).attr("index"))
+    .addClass("current")
+    .siblings(".imgbox")
+    .removeClass("current");
+});
+let isVolume = false;
+$(".volumebtn").click(function () {
+  if (isVolume) {
+    $(".dtwallpaper")[0].muted = false;
+    isVolume = false;
+    $(".volumebtn .icon-shengyin_shiti").css("display", "block");
+    $(".volumebtn .icon-jingyin").css("display", "none");
+  } else {
+    $(".dtwallpaper")[0].muted = true;
+    isVolume = true;
+    $(".volumebtn .icon-shengyin_shiti").css("display", "none");
+    $(".volumebtn .icon-jingyin").css("display", "block");
+  }
+});

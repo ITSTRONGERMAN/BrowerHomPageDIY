@@ -66,6 +66,15 @@ body {
   height: 100%;
   z-index: 0;
 }
+.dtwallpaper {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -123123;
+}
 .container {
   width: 1200px;
   height: 100%;
@@ -85,7 +94,9 @@ body {
         line-height: 45px;
         color: #fff;
         margin-right: 10px;
-        .icon-huanfu {
+        .icon-huanfu,
+        .icon-jingyin,
+        .icon-shengyin_shiti {
           font-size: 30px;
           color: #fff;
         }
@@ -93,7 +104,7 @@ body {
           position: absolute;
           right: 0;
           top: 45px;
-          width: 900px;
+          width: 955px;
           height: 600px;
           background-color: #fff;
           border-radius: 10px;
@@ -112,6 +123,10 @@ body {
               background-color: #4e5969;
               line-height: 30px;
             }
+            li.active {
+              background-color: #000;
+              color: #fff;
+            }
             li {
               font-size: 16px;
               width: 100px;
@@ -119,13 +134,20 @@ body {
               text-align: center;
               line-height: 30px;
               background-color: #4e5969;
+              user-select: none;
             }
           }
+          ul.current {
+            display: block;
+          }
           .imgbox {
-            display: flex;
+            overflow: hidden;
             padding: 0 20px 20px 20px;
             flex-wrap: wrap;
-            perspective: 1000px;
+            position: absolute;
+            display: none;
+            left: 0;
+            top: 30px;
             :nth-child(4n) {
               margin-right: 0 !important;
             }
@@ -133,6 +155,7 @@ body {
               width: 200px;
               height: 200px;
               margin-right: 20px;
+              float: left;
               margin-top: 20px;
               transition: all 0.5s;
               &:hover {
@@ -141,6 +164,11 @@ body {
               }
               &:hover img {
                 opacity: 1;
+              }
+              video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
               }
               img {
                 width: 100%;

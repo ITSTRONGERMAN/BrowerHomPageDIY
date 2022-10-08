@@ -66,6 +66,15 @@ body {
   height: 100%;
   z-index: 0;
 }
+.dtwallpaper {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -123123;
+}
 .container {
   width: 1200px;
   height: 100%;
@@ -89,7 +98,9 @@ body {
   color: #fff;
   margin-right: 10px;
 }
-.container nav .navlist .nav .icon-huanfu {
+.container nav .navlist .nav .icon-huanfu,
+.container nav .navlist .nav .icon-jingyin,
+.container nav .navlist .nav .icon-shengyin_shiti {
   font-size: 30px;
   color: #fff;
 }
@@ -97,7 +108,7 @@ body {
   position: absolute;
   right: 0;
   top: 45px;
-  width: 900px;
+  width: 955px;
   height: 600px;
   background-color: #fff;
   border-radius: 10px;
@@ -118,6 +129,10 @@ body {
   background-color: #4e5969;
   line-height: 30px;
 }
+.container nav .navlist .nav .tab-box .jord li.active {
+  background-color: #000;
+  color: #fff;
+}
 .container nav .navlist .nav .tab-box .jord li {
   font-size: 16px;
   width: 100px;
@@ -125,12 +140,19 @@ body {
   text-align: center;
   line-height: 30px;
   background-color: #4e5969;
+  user-select: none;
+}
+.container nav .navlist .nav .tab-box ul.current {
+  display: block;
 }
 .container nav .navlist .nav .tab-box .imgbox {
-  display: flex;
+  overflow: hidden;
   padding: 0 20px 20px 20px;
   flex-wrap: wrap;
-  perspective: 1000px;
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 30px;
 }
 .container nav .navlist .nav .tab-box .imgbox :nth-child(4n) {
   margin-right: 0 !important;
@@ -139,6 +161,7 @@ body {
   width: 200px;
   height: 200px;
   margin-right: 20px;
+  float: left;
   margin-top: 20px;
   transition: all 0.5s;
 }
@@ -148,6 +171,11 @@ body {
 }
 .container nav .navlist .nav .tab-box .imgbox li.skin-img:hover img {
   opacity: 1;
+}
+.container nav .navlist .nav .tab-box .imgbox li.skin-img video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .container nav .navlist .nav .tab-box .imgbox li.skin-img img {
   width: 100%;
