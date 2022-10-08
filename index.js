@@ -8,6 +8,17 @@ const wallpaperList = [
   "./wallpaper/bg6.jpg",
   "./wallpaper/bg7.jpg",
   "./wallpaper/bg8.jpg",
+  "./wallpaper/bg9.jpg",
+  "./wallpaper/bg10.jpg",
+  './wallpaper/bg12.jpg',
+  './wallpaper/bg13.jpg',
+  './wallpaper/bg14.jpg',
+  './wallpaper/bg15.jpg',
+  './wallpaper/bg16.jpg',
+  './wallpaper/bg17.jpg',
+  './wallpaper/bg18.jpg',
+  './wallpaper/bg19.jpg',
+  './wallpaper/bg20.jpg',
 ];
 // 动态渲染壁纸数据
 $.each(wallpaperList, function (index, imgData) {
@@ -78,7 +89,6 @@ $(".nav .tab-box .skin-img").click(function () {
   clearInterval(autoChangSkinTimer);
   let imgSrc = $(this).children("img").prop("src");
   autoChangSkinIndex = $(this).attr("index");
-  console.log(autoChangSkinIndex);
   $("body").css({
     background: `url('${imgSrc}')`,
     backgroundSize: "cover",
@@ -87,7 +97,7 @@ $(".nav .tab-box .skin-img").click(function () {
   autoChangeSkin();
 });
 // 导航栏按钮控制自动换肤
-// 下方常用网站快捷导航数据
+// 网站快捷导航数据
 const websiteNav = [
   {
     url: "https://www.bilibili.com",
@@ -149,7 +159,12 @@ $(".website-box .yes").click(function () {
   }
   let url = $("#weburl").val();
   let name = $("#webname").val();
-  if (url.trim() == "" || name.trim() == "") {
+  if (
+    url.trim() == "" ||
+    url.length == 0 ||
+    name.trim() == "" ||
+    name.length == 0
+  ) {
     showTip("必填内容，不能为空");
     return;
   }
@@ -164,4 +179,12 @@ $(".website-box .yes").click(function () {
   $(this).parent().fadeOut();
   $("#weburl").val("");
   $("#webname").val("");
+});
+// 导航名言数据请求
+$.ajax({
+  type: "get",
+  url: "https://api.uixsj.cn/hitokoto/get?type=social",
+  success(res) {
+    $('.famoustxt').html(res)
+  },
 });

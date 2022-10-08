@@ -53,9 +53,16 @@ body {
   display: flex;
   justify-content: flex-end;
 }
+.container nav .navlist :last-child {
+  margin-right: 0 !important;
+}
 .container nav .navlist .nav {
   position: relative;
   cursor: pointer;
+  font-size: 20px;
+  line-height: 45px;
+  color: #fff;
+  margin-right: 10px;
 }
 .container nav .navlist .nav .icon-huanfu {
   font-size: 30px;
@@ -71,6 +78,10 @@ body {
   border-radius: 10px;
   display: none;
   z-index: 213123;
+  overflow: auto;
+}
+.container nav .navlist .nav .tab-box::-webkit-scrollbar {
+  width: 0 !important;
 }
 .container nav .navlist .nav .tab-box ul {
   display: flex;
@@ -136,12 +147,11 @@ body {
 }
 .website-box {
   margin-top: 20px;
-  position: relative;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(15px);
   box-shadow: 0 0 10px #333;
   border-radius: 10px;
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
   bottom: 20px;
@@ -205,8 +215,8 @@ body {
   width: 300px;
   background-color: #fff;
   position: absolute;
-  right: -320px;
-  bottom: 50px;
+  left: 50%;
+  top: -250px;
   padding: 30px;
   border-radius: 5px;
   text-align: center;
@@ -240,4 +250,5 @@ body {
   text-align: center;
   line-height: 30px;
   cursor: pointer;
+  border-radius: 5px;
 }
