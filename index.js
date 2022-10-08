@@ -77,7 +77,7 @@ function autoChangeSkin() {
     }
     autoChangeSkinIndex++;
     $("body").css({
-      background: `url('file:///C:/Users/86199/Desktop/project/BrowerHomPageDIY/wallpaper/bg${autoChangSkinIndex}.jpg')`,
+      background: `url('file:///C:/Users/86199/Desktop/project/BrowerHomPageDIY/wallpaper/bg${autoChangeSkinIndex}.jpg')`,
       backgroundSize: "cover",
       backgroundPosition: "center",
     });
