@@ -100,6 +100,15 @@ body {
           font-size: 30px;
           color: #fff;
         }
+        .volumeline {
+          width: 80px;
+          background-color: #fff;
+          &::-webkit-slider-thumb {
+            // appearance: none;
+            // -webkit-appearance: none;
+            background-color: #fff;
+          }
+        }
         .tab-box {
           position: absolute;
           right: 0;
@@ -162,15 +171,12 @@ body {
                 box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.5);
                 transform: scale(1.05);
               }
-              &:hover img {
+              &:hover img,
+              &:hover video {
                 opacity: 1;
               }
+              img,
               video {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-              }
-              img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;

@@ -28,102 +28,11 @@ const dynamicWallpaperList = [
   "./wallpaper/dtbg4.mp4",
   "./wallpaper/dtbg5.mp4",
   "./wallpaper/dtbg6.mp4",
+  "./wallpaper/dtbg7.mp4",
+  "./wallpaper/dtbg8.mp4",
+  "./wallpaper/dtbg9.mp4",
+  "./wallpaper/dtbg10.mp4",
 ];
-// 动态渲染壁纸数据
-$.each(statiWallpaperList, function (index, imgData) {
-  let li = $("<li></li>");
-  li.addClass("skin-img");
-  li.attr("index", index + 1);
-  li.html(`<img src="${imgData}" alt="" />`);
-  $(".nav .tab-box .staicwallpaper").append(li);
-});
-$.each(dynamicWallpaperList, function (index, imgData) {
-  let li = $("<li></li>");
-  li.addClass("skin-img");
-  li.attr("index", index + 1);
-  li.html(`<video src="${imgData}" autoplay loop muted></video>`);
-  $(".nav .tab-box .dynamicwallpaper").append(li);
-});
-// 提示框函数
-let tipTimer = null;
-function showTip(txt) {
-  $(".tip .tiptxt").html(txt);
-  $(".tip").slideDown();
-  // 防抖
-  if (tipTimer != null) {
-    clearTimeout(tipTimer);
-  }
-  tipTimer = setTimeout(() => {
-    $(".tip").slideUp();
-  }, 3000);
-}
-// 换肤选项列表的淡入淡出
-let isShowSkinBox = false;
-$(".nav").click(function (e) {
-  if (
-    e.target.parentNode.className == "tab-box" ||
-    e.target.parentNode.className == "jord"
-  ) {
-    return;
-  }
-  if (!isShowSkinBox) {
-    $(this).children(".tab-box").fadeIn();
-    isShowSkinBox = true;
-  } else {
-    $(this).children(".tab-box").fadeOut();
-    isShowSkinBox = false;
-  }
-});
-// 搜索功能
-$(".search-btn").click(function () {
-  // 当搜索框为空时，提示功能
-  let val = $(".search-ipt").val().trim();
-  if (val == "" || val.length == 0) {
-    showTip("搜索框不能为空");
-    return;
-  }
-  let searchUrl = "https://www.baidu.com/s?wd=" + val;
-  window.open(searchUrl);
-});
-// 自动换肤功能
-let autoChangeSkinIndex = 0;
-let autoChangeSkinTimer = null;
-let autoChangeSkinDelay = 180000;
-function autoChangeSkin() {
-  autoChangSkinTimer = setInterval(() => {
-    if (autoChangeSkinIndex > wallpaperList.length) {
-      autoChangeSkinIndex = 0;
-    }
-    autoChangeSkinIndex++;
-    $("body").css({
-      background: `url('file:///C:/Users/86199/Desktop/project/BrowerHomPageDIY/wallpaper/bg${autoChangeSkinIndex}.jpg')`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    });
-    getFamousTxt();
-  }, autoChangeSkinDelay);
-}
-autoChangeSkin();
-// 手动换肤功能的实现
-// 静态
-$(".nav .tab-box .staicwallpaper .skin-img").click(function () {
-  clearInterval(autoChangeSkinTimer);
-  $(".dtwallpaper").prop("src", "");
-  let imgSrc = $(this).children("img").prop("src");
-  autoChangeSkinIndex = $(this).attr("index");
-  $("body").css({
-    background: `url('${imgSrc}')`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  });
-  autoChangeSkin();
-});
-// 动态
-$(".nav .tab-box .dynamicwallpaper .skin-img").click(function () {
-  let videoSrc = $(this).children("video").prop("src");
-  $(".dtwallpaper").prop("src", videoSrc);
-});
-// 导航栏按钮控制自动换肤
 // 网站快捷导航数据
 const websiteNav = [
   {
@@ -167,6 +76,96 @@ const websiteNav = [
     name: "Vue",
   },
 ];
+// 动态渲染壁纸数据
+$.each(statiWallpaperList, function (index, imgData) {
+  let li = $("<li></li>");
+  li.addClass("skin-img");
+  li.attr("index", index + 1);
+  li.html(`<img src="${imgData}" alt="" />`);
+  $(".nav .tab-box .staicwallpaper").append(li);
+});
+$.each(dynamicWallpaperList, function (index, imgData) {
+  let li = $("<li></li>");
+  li.addClass("skin-img");
+  li.attr("index", index + 1);
+  li.html(`<video src="${imgData}" autoplay loop muted></video>`);
+  $(".nav .tab-box .dynamicwallpaper").append(li);
+});
+// 提示框函数
+let tipTimer = null;
+function showTip(txt) {
+  $(".tip .tiptxt").html(txt);
+  $(".tip").slideDown();
+  // 防抖
+  if (tipTimer != null) {
+    clearTimeout(tipTimer);
+  }
+  tipTimer = setTimeout(() => {
+    $(".tip").slideUp();
+  }, 3000);
+}
+// 换肤选项列表的淡入淡出
+let isShowSkinBox = false;
+$(".nav").click(function (e) {
+  if (e.target.nodeName.toLowerCase() == "ul") return;
+  if (!isShowSkinBox) {
+    $(this).children(".tab-box").fadeIn();
+    isShowSkinBox = true;
+  } else {
+    $(this).children(".tab-box").fadeOut();
+    isShowSkinBox = false;
+  }
+});
+// 搜索功能
+$(".search-btn").click(function () {
+  // 当搜索框为空时，提示功能
+  let val = $(".search-ipt").val().trim();
+  if (val == "" || val.length == 0) {
+    showTip("搜索框不能为空");
+    return;
+  }
+  let searchUrl = "https://www.baidu.com/s?wd=" + val;
+  window.open(searchUrl);
+});
+// 自动换肤功能
+let autoChangeSkinIndex = 0;
+let autoChangeSkinTimer = null;
+let autoChangeSkinDelay = 180000;
+function autoChangeSkin() {
+  autoChangSkinTimer = setInterval(() => {
+    if (autoChangeSkinIndex > wallpaperList.length) {
+      autoChangeSkinIndex = 0;
+    }
+    autoChangeSkinIndex++;
+    $("body").css({
+      background: `url('file:///C:/Users/86199/Desktop/project/BrowerHomPageDIY/wallpaper/bg${autoChangeSkinIndex}.jpg')`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    });
+    getFamousTxt();
+  }, autoChangeSkinDelay);
+}
+autoChangeSkin();
+// 手动换肤功能的实现
+// 静态
+$(".nav .tab-box .staicwallpaper .skin-img").click(function (e) {
+  clearInterval(autoChangeSkinTimer);
+  $(".dtwallpaper").prop("src", "");
+  let imgSrc = $(this).children("img").prop("src");
+  autoChangeSkinIndex = $(this).attr("index");
+  $("body").css({
+    background: `url('${imgSrc}')`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  });
+  autoChangeSkin();
+});
+// 动态
+$(".nav .tab-box .dynamicwallpaper .skin-img").click(function (e) {
+  $("body").css("background", "");
+  let videoSrc = $(this).children("video").prop("src");
+  $(".dtwallpaper").prop("src", videoSrc);
+});
 // 动态渲染网站快捷导航数据
 function renderWebsiteNav() {
   $.each(websiteNav, function (index, websiteData) {
@@ -261,12 +260,12 @@ $(".opencalendar").click(function () {
     isOpenCalendar = true;
   } else {
     $(this).parent().css("right", "-360px");
-    $(this).html("打开日历");
+    $(this).html("查看日历");
     isOpenCalendar = false;
   }
   calendarTimer = setTimeout(() => {
     $(this).parent().css("right", "-360px");
-    $(this).html("打开日历");
+    $(this).html("查看日历");
     isOpenCalendar = false;
   }, 10000);
 });
@@ -277,7 +276,8 @@ $(".opencalendar").click(function () {
 // }
 // console.log(formatTime(dateNow));
 // 静动态壁纸tab栏切换
-$(".jord li").click(function () {
+$(".jord li").click(function (e) {
+  e.stopPropagation();
   $(this).addClass("active").siblings("li").removeClass("active");
   $(".imgbox")
     .eq($(this).attr("index"))
@@ -293,10 +293,23 @@ $(".volumebtn").click(function () {
     isVolume = false;
     $(".volumebtn .icon-shengyin_shiti").css("display", "block");
     $(".volumebtn .icon-jingyin").css("display", "none");
+    $(".volumeline").val(50);
   } else {
     $(".dtwallpaper")[0].muted = true;
     isVolume = true;
     $(".volumebtn .icon-shengyin_shiti").css("display", "none");
     $(".volumebtn .icon-jingyin").css("display", "block");
+    $(".volumeline").val(0);
   }
+});
+// 控制动态壁纸音量
+$(".volumeline").change(function () {
+  if ($(this).val() == 0) {
+    $(".volumebtn .icon-shengyin_shiti").css("display", "none");
+    $(".volumebtn .icon-jingyin").css("display", "block");
+  } else {
+    $(".volumebtn .icon-shengyin_shiti").css("display", "block");
+    $(".volumebtn .icon-jingyin").css("display", "none");
+  }
+  $(".dtwallpaper")[0].volume = $(this).val() / 100;
 });
