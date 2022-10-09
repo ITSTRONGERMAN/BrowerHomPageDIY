@@ -7,7 +7,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  background: url("../wallpaper/bg1.jpg") no-repeat;
+  background: url("../wallpaper/jtimg/bg1.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   transition: all 0.5s;

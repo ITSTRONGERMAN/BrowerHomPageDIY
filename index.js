@@ -1,36 +1,36 @@
 // 静态壁纸数据
 const statiWallpaperList = [
-  "./wallpaper/bg1.jpg",
-  "./wallpaper/bg2.jpg",
-  "./wallpaper/bg3.jpg",
-  "./wallpaper/bg4.jpg",
-  "./wallpaper/bg5.jpg",
-  "./wallpaper/bg6.jpg",
-  "./wallpaper/bg7.jpg",
-  "./wallpaper/bg8.jpg",
-  "./wallpaper/bg9.jpg",
-  "./wallpaper/bg10.jpg",
-  "./wallpaper/bg12.jpg",
-  "./wallpaper/bg13.jpg",
-  "./wallpaper/bg14.jpg",
-  "./wallpaper/bg15.jpg",
-  "./wallpaper/bg16.jpg",
-  "./wallpaper/bg17.jpg",
-  "./wallpaper/bg18.jpg",
-  "./wallpaper/bg19.jpg",
-  "./wallpaper/bg20.jpg",
+  "./wallpaper/jtimg/bg1.jpg",
+  "./wallpaper/jtimg/bg2.jpg",
+  "./wallpaper/jtimg/bg3.jpg",
+  "./wallpaper/jtimg/bg4.jpg",
+  "./wallpaper/jtimg/bg5.jpg",
+  "./wallpaper/jtimg/bg6.jpg",
+  "./wallpaper/jtimg/bg7.jpg",
+  "./wallpaper/jtimg/bg8.jpg",
+  "./wallpaper/jtimg/bg9.jpg",
+  "./wallpaper/jtimg/bg10.jpg",
+  "./wallpaper/jtimg/bg12.jpg",
+  "./wallpaper/jtimg/bg13.jpg",
+  "./wallpaper/jtimg/bg14.jpg",
+  "./wallpaper/jtimg/bg15.jpg",
+  "./wallpaper/jtimg/bg16.jpg",
+  "./wallpaper/jtimg/bg17.jpg",
+  "./wallpaper/jtimg/bg18.jpg",
+  "./wallpaper/jtimg/bg19.jpg",
+  "./wallpaper/jtimg/bg20.jpg",
 ];
 // 动态壁纸数据
 const dynamicWallpaperList = [
-  "./wallpaper/dtbg1.mp4",
-  "./wallpaper/dtbg2.mp4",
-  "./wallpaper/dtbg3.mp4",
-  "./wallpaper/dtbg4.mp4",
-  "./wallpaper/dtbg5.mp4",
-  "./wallpaper/dtbg6.mp4",
-  "./wallpaper/dtbg7.mp4",
-  "./wallpaper/dtbg8.mp4",
-  "./wallpaper/dtbg9.mp4",
+  "./wallpaper/dtimg/dtbg1.mp4",
+  "./wallpaper/dtimg/dtbg2.mp4",
+  "./wallpaper/dtimg/dtbg3.mp4",
+  "./wallpaper/dtimg/dtbg4.mp4",
+  "./wallpaper/dtimg/dtbg5.mp4",
+  "./wallpaper/dtimg/dtbg6.mp4",
+  "./wallpaper/dtimg/dtbg7.mp4",
+  "./wallpaper/dtimg/dtbg8.mp4",
+  "./wallpaper/dtimg/dtbg9.mp4",
   "./wallpaper/dtbg10.mp4",
 ];
 // 网站快捷导航数据
@@ -294,6 +294,7 @@ $(".volumebtn").click(function () {
     $(".volumebtn .icon-shengyin_shiti").css("display", "block");
     $(".volumebtn .icon-jingyin").css("display", "none");
     $(".volumeline").val(50);
+    $(".dtwallpaper")[0].volume = $(".volumeline").val() / 100;
   } else {
     $(".dtwallpaper")[0].muted = true;
     isVolume = true;
@@ -307,9 +308,11 @@ $(".volumeline").change(function () {
   if ($(this).val() == 0) {
     $(".volumebtn .icon-shengyin_shiti").css("display", "none");
     $(".volumebtn .icon-jingyin").css("display", "block");
+    isVolume = true;
   } else {
     $(".volumebtn .icon-shengyin_shiti").css("display", "block");
     $(".volumebtn .icon-jingyin").css("display", "none");
+    isVolume = false;
   }
   $(".dtwallpaper")[0].volume = $(this).val() / 100;
 });
