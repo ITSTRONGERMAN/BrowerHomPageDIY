@@ -7,7 +7,6 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  background: url("../wallpaper/jtimg/bg1.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   transition: all 0.5s;
@@ -104,6 +103,11 @@ body {
           width: 80px;
           background-color: #fff;
           &::-webkit-slider-thumb {
+            // appearance: none;
+            // -webkit-appearance: none;
+            background-color: #fff;
+          }
+          &::-moz-slider-thumb {
             // appearance: none;
             // -webkit-appearance: none;
             background-color: #fff;

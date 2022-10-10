@@ -31,7 +31,7 @@ const dynamicWallpaperList = [
   "./wallpaper/dtimg/dtbg7.mp4",
   "./wallpaper/dtimg/dtbg8.mp4",
   "./wallpaper/dtimg/dtbg9.mp4",
-  "./wallpaper/dtbg10.mp4",
+  "./wallpaper/dtimg/dtbg10.mp4",
 ];
 // 网站快捷导航数据
 const websiteNav = [
@@ -308,10 +308,12 @@ $(".volumeline").change(function () {
   if ($(this).val() == 0) {
     $(".volumebtn .icon-shengyin_shiti").css("display", "none");
     $(".volumebtn .icon-jingyin").css("display", "block");
+    $(".dtwallpaper")[0].muted = true;
     isVolume = true;
   } else {
     $(".volumebtn .icon-shengyin_shiti").css("display", "block");
     $(".volumebtn .icon-jingyin").css("display", "none");
+    $(".dtwallpaper")[0].muted = false;
     isVolume = false;
   }
   $(".dtwallpaper")[0].volume = $(this).val() / 100;

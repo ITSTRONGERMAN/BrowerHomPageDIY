@@ -7,7 +7,6 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  background: url("../wallpaper/jtimg/bg1.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   transition: all 0.5s;
@@ -109,6 +108,9 @@ body {
   background-color: #fff;
 }
 .container nav .navlist .nav .volumeline::-webkit-slider-thumb {
+  background-color: #fff;
+}
+.container nav .navlist .nav .volumeline::-moz-slider-thumb {
   background-color: #fff;
 }
 .container nav .navlist .nav .tab-box {

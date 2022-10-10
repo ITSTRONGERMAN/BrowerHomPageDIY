@@ -13,15 +13,17 @@
       href="./wallpaper/favicon.ico"
       type="image/x-icon"
     />
-    <link
-      rel="stylesheet"
-      href="./iconfont/iconfont.css"
-    />
+    <link rel="stylesheet" href="./iconfont/iconfont.css" />
     <script src="./libs/jquery.min.js"></script>
     <script src="./libs/schedule.js"></script>
   </head>
 
-  <body>
+  <body
+    style="
+      background: url(./wallpaper/jtimg/bg1.jpg) center;
+      background-size: cover;
+    "
+  >
     <!-- 动态壁纸 -->
     <video src="" class="dtwallpaper" autoplay loop></video>
     <!-- 日历插件 -->
@@ -53,7 +55,9 @@
             <span class="iconfont icon-shengyin_shiti"></span>
             <span class="iconfont icon-jingyin" style="display: none"></span>
           </li>
-          <li class="nav"><input type="range" class="volumeline" value="50" /></li>
+          <li class="nav">
+            <input type="range" class="volumeline" value="50" />
+          </li>
         </ul>
       </nav>
       <div class="search-box">
@@ -88,5 +92,5 @@
       </div>
     </div>
   </body>
-  <script src="./index.js"></script>
+  <script src="script.js"></script>
 </html>
