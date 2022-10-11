@@ -253,12 +253,6 @@ $(".opencalendar").click(function () {
     isOpenCalendar = false;
   }, 10000);
 });
-// 获取时间
-// let dateNow = new Date();
-// function formatTime(time) {
-//   return `${time.getFullYear()}年`;
-// }
-// console.log(formatTime(dateNow));
 // 静动态壁纸tab栏切换
 $(".jord li").click(function (e) {
   e.stopPropagation();
