@@ -75,6 +75,11 @@ const websiteNav = [
     imgUrl: "https://vuejs.org/images/logo.png",
     name: "Vue",
   },
+  {
+    url: "https://developer.mozilla.org/zh-CN/",
+    imgUrl: "https://developer.mozilla.org/favicon-48x48.cbbd161b.png",
+    name: "MDN",
+  },
 ];
 // 动态渲染壁纸数据
 $.each(statiWallpaperList, function (index, imgData) {
@@ -127,32 +132,11 @@ $(".search-btn").click(function () {
   let searchUrl = "https://www.baidu.com/s?wd=" + val;
   window.open(searchUrl);
 });
-// 自动换肤功能
-let autoChangeSkinIndex = 0;
-let autoChangeSkinTimer = null;
-let autoChangeSkinDelay = 180000;
-function autoChangeSkin() {
-  autoChangSkinTimer = setInterval(() => {
-    if (autoChangeSkinIndex > wallpaperList.length) {
-      autoChangeSkinIndex = 0;
-    }
-    autoChangeSkinIndex++;
-    $("body").css({
-      background: `url('file:///C:/Users/86199/Desktop/project/BrowerHomPageDIY/wallpaper/bg${autoChangeSkinIndex}.jpg')`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    });
-    getFamousTxt();
-  }, autoChangeSkinDelay);
-}
-autoChangeSkin();
 // 手动换肤功能的实现
-// 静态
+// 静态壁纸
 $(".nav .tab-box .staicwallpaper .skin-img").click(function (e) {
-  clearInterval(autoChangeSkinTimer);
   $(".dtwallpaper").prop("src", "");
   let imgSrc = $(this).children("img").prop("src");
-  autoChangeSkinIndex = $(this).attr("index");
   $("body").css({
     background: `url('${imgSrc}')`,
     backgroundSize: "cover",
@@ -160,7 +144,7 @@ $(".nav .tab-box .staicwallpaper .skin-img").click(function (e) {
   });
   autoChangeSkin();
 });
-// 动态
+// 动态壁纸
 $(".nav .tab-box .dynamicwallpaper .skin-img").click(function (e) {
   $("body").css("background", "");
   let videoSrc = $(this).children("video").prop("src");
